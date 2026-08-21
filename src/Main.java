@@ -1,6 +1,7 @@
 import model.Aluno;
 import model.Frequencia;
 import model.Notas;
+import view.AlunoView;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -91,7 +92,8 @@ public class Main {
         System.out.println("\n              ALUNO CADASTRADO!             ");
         System.out.println("==============================================");
 
-        aluno.exibirDados();
+        AlunoView alunoView = new AlunoView();
+        alunoView.exibirDados(aluno);
 
 
 
