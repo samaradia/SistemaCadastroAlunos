@@ -1,3 +1,5 @@
+package model;
+
 public class Notas {
     private Aluno aluno;
     private double nota1;

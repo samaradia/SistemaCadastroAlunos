@@ -1,3 +1,7 @@
+import model.Aluno;
+import model.Frequencia;
+import model.Notas;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -52,7 +56,7 @@ public class Main {
         System.out.println("\nDigita o número da turma: ");
         int turma = leitura.nextInt();
 
-        System.out.println("\nAluno adicionado!");
+        System.out.println("\nmodel.Aluno adicionado!");
 
         System.out.println("\n                    NOTAS                  ");
         System.out.println("=============================================");
@@ -71,8 +75,8 @@ public class Main {
         System.out.printf("\nA média: %.2f%n", nota.calcularMedia());
         System.out.println(nota.verificarAprovacao());
 
-        System.out.println("\n                FREQUÊNCIA                    ");
-        System.out.println("================================================");
+        System.out.println("\n                FREQUÊNCIA                   ");
+        System.out.println("===============================================");
 
         System.out.println("\nDigite as aulas presentes: ");
         int aulasPresentes = leitura.nextInt();
@@ -84,10 +88,11 @@ public class Main {
         System.out.println("\nTotal de frequência: " + frequencia.calcularFrequencia());
         System.out.println(frequencia.VerificarFrequencia());
 
-        System.out.println("\n              ALUNO CADASTRADO!           ");
-        System.out.println("============================================");
+        System.out.println("\n              ALUNO CADASTRADO!             ");
+        System.out.println("==============================================");
 
         aluno.exibirDados();
+
 
 
     }
