@@ -12,38 +12,32 @@ import java.util.regex.Pattern;
 public class Main {
     public static void main(String[] args) {
         Scanner leitura = new Scanner(System.in);
-        System.out.println("\n            CADASTRAR ALUNOS           ");
-        System.out.println("=========================================");
 
-        System.out.println("\nMatricula: ");
+        AlunoView alunoView = new AlunoView();
+        alunoView.mostrarCadastro();
+
         String matricula = leitura.nextLine();
 
         Pattern pattern3 = Pattern.compile("^\\d{1,10}$");
         Matcher matcher3 = pattern3.matcher(matricula);
 
-        System.out.println("\nNome: ");
         String nome = leitura.nextLine();
 
-
-        System.out.println("\nCPF: ");
         String cpf = leitura.nextLine();
 
         Pattern pattern = Pattern.compile("^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$");
         Matcher matcher = pattern.matcher(cpf);
 
-        System.out.println("\nData de nascimento (dd/MM/yyyy): ");
         String dataTexto = leitura.nextLine();
 
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataDeNascimento = LocalDate.parse(dataTexto, formato);
 
-        System.out.println("\nE-mail: ");
         String email = leitura.nextLine();
 
         Pattern pattern1 = Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
         Matcher matcher1 = pattern1.matcher(email);
 
-        System.out.println("\nTelefone: ");
         String telefone = leitura.nextLine();
 
         Pattern pattern2 = Pattern.compile("^\\(?\\d{2}\\)?\\s?\\d{4,5}-?\\d{4}$");
@@ -92,7 +86,7 @@ public class Main {
         System.out.println("\n              ALUNO CADASTRADO!             ");
         System.out.println("==============================================");
 
-        AlunoView alunoView = new AlunoView();
+
         alunoView.exibirDados(aluno);
 
 

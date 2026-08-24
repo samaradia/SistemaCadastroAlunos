@@ -2,7 +2,21 @@ package view;
 
 import model.Aluno;
 
+import java.util.Scanner;
+
 public class AlunoView {
+    public void mostrarCadastro() {
+        System.out.println("\n            CADASTRAR ALUNOS           ");
+        System.out.println("=========================================");
+        System.out.println("\nMatricula: " );
+        System.out.println("\nNome: ");
+        System.out.println("\nCPF: ");
+        System.out.println("\nData de nascimento (dd/MM/yyyy): ");
+        System.out.println("\nE-mail: ");
+        System.out.println("\nTelefone: ");
+    }
+
+
     public void exibirDados(Aluno aluno) {
         System.out.println("=================================");
         System.out.println("          DADOS DO ALUNO");
@@ -14,4 +28,6 @@ public class AlunoView {
         System.out.println("E-mail: " + aluno.getEmail());
         System.out.println("Telefone: " + aluno.getTelefone());
     }
+
+
 }
