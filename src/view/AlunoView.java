@@ -16,6 +16,10 @@ public class AlunoView {
         System.out.println("\nTelefone: ");
     }
 
+    public void alunoCadastrado(){
+        System.out.println("\n              ALUNO CADASTRADO!             ");
+        System.out.println("==============================================");
+    }
 
     public void exibirDados(Aluno aluno) {
         System.out.println("=================================");

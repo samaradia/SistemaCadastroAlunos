@@ -45,49 +45,26 @@ public class Main {
 
         Aluno aluno = new Aluno(matricula, nome, cpf, dataDeNascimento, email, telefone);
 
-        System.out.println("\n                   TURMA!                 ");
-        System.out.println("============================================");
-
-        System.out.println("\nDigita o número da turma: ");
+       ;
         int turma = leitura.nextInt();
 
-        System.out.println("\nmodel.Aluno adicionado!");
-
-        System.out.println("\n                    NOTAS                  ");
-        System.out.println("=============================================");
-
-        System.out.println("\nNota1: ");
         double nota1 = leitura.nextDouble();
 
-        System.out.println("Nota2: ");
         double nota2 = leitura.nextDouble();
 
-        System.out.println("Nota3: ");
         double nota3 = leitura.nextDouble();
 
         Notas nota = new Notas(aluno, nota1, nota2, nota3);
 
-        System.out.printf("\nA média: %.2f%n", nota.calcularMedia());
-        System.out.println(nota.verificarAprovacao());
-
-        System.out.println("\n                FREQUÊNCIA                   ");
-        System.out.println("===============================================");
-
-        System.out.println("\nDigite as aulas presentes: ");
         int aulasPresentes = leitura.nextInt();
 
-        System.out.println("\nDigite as aulas faltadas: ");
         int aulasFaltadas = leitura.nextInt();
 
         Frequencia frequencia = new Frequencia(aluno, aulasPresentes, aulasFaltadas);
-        System.out.println("\nTotal de frequência: " + frequencia.calcularFrequencia());
-        System.out.println(frequencia.VerificarFrequencia());
 
-        System.out.println("\n              ALUNO CADASTRADO!             ");
-        System.out.println("==============================================");
-
-
-        alunoView.exibirDados(aluno);
+       leitura.close();
+       alunoView.alunoCadastrado();
+       alunoView.exibirDados(aluno);
 
 
 
