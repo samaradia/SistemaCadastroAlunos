@@ -3,11 +3,15 @@ package view;
 import model.Frequencia;
 
 public class FrequenciaView {
-    public void mostrarFrequencia(Frequencia frequencia){
+    public void mostrarFrequencia(){
         System.out.println("\n                FREQUÊNCIA                   ");
         System.out.println("===============================================");
-        System.out.println("\nDigite as aulas presentes: ");
-        System.out.println("\nDigite as aulas faltadas: ");
+    }
+    public void mostrarPergunta(String pergunta) {
+        System.out.println("\n" + pergunta);
+    }
+
+    public void exibirResltado(Frequencia frequencia){
         System.out.println("\nTotal de frequência: " + frequencia.calcularFrequencia());
         System.out.println(frequencia.VerificarFrequencia());
     }

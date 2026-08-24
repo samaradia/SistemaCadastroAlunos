@@ -3,13 +3,17 @@ package view;
 import model.Notas;
 
 public class NotasView {
-    public void mostrarNotas(Notas notas){
+    public void mostrarNotas() {
         System.out.println("\n                    NOTAS                  ");
         System.out.println("=============================================");
-        System.out.println("\nNota1: ");
-        System.out.println("Nota2: ");
-        System.out.println("Nota3: ");
-        System.out.printf("\nA média: %.2f%n", notas.calcularMedia());
-        System.out.println(notas.verificarAprovacao());
+    }
+
+    public void mostrarPergunta(String pergunta) {
+        System.out.println("\n" + pergunta);
+    }
+
+    public void exibirResultado(Notas nota) {
+        System.out.printf("\nA média: %.2f%n", nota.calcularMedia());
+        System.out.println(nota.verificarAprovacao());
     }
 }
