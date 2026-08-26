@@ -12,6 +12,7 @@ public class CursoView {
     }
 
     public void exibirDisciplina(Curso curso){
-        System.out.println("Sua disciplina é " + curso.getDisciplina());
+        System.out.println("Sua disciplina é  " + curso.getDisciplina() + ".");
+        System.out.println("Adicionado Com Sucesso!");
     }
 }

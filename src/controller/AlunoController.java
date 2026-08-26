@@ -16,7 +16,7 @@ public class AlunoController {
         this.leitura = leitura;               // um Scanner. Eu vou guardar esse Scanner dentro de mim.
 
     }
-    public void cadastrarAluno(){
+    public Aluno cadastrarAluno(){
         AlunoView alunoView = new AlunoView();
         alunoView.mostrarCadastro();
 
@@ -54,6 +54,9 @@ public class AlunoController {
         Matcher telefoneMatcher = telefonePattern.matcher(telefone);
 
         Aluno aluno = new Aluno(matricula, nome, cpf, dataDeNascimento, email, telefone);
+        return aluno;
+
+
     }
 
 }
