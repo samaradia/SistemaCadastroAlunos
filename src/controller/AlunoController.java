@@ -54,7 +54,10 @@ public class AlunoController {
         Matcher telefoneMatcher = telefonePattern.matcher(telefone);
 
         Aluno aluno = new Aluno(matricula, nome, cpf, dataDeNascimento, email, telefone);
+        alunoView.exibirDados(aluno);
         return aluno;
+
+
 
 
     }
