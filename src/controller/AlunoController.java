@@ -23,9 +23,8 @@ public class AlunoController {
         alunoView.mostrarPergunta("Matricula: ");
         String matricula = leitura.nextLine();
 
-        Pattern pattern3 = Pattern.compile("^\\d{1,10}$");
-        Matcher matcher3 = pattern3.matcher(matricula);
-
+        Pattern matriculaPattern = Pattern.compile("^\\d{1,10}$");
+        Matcher matriculaMatcher = matriculaPattern.matcher(matricula);
 
         alunoView.mostrarPergunta("Nome: ");
         String nome = leitura.nextLine();
@@ -33,8 +32,8 @@ public class AlunoController {
         alunoView.mostrarPergunta("CPF: ");
         String cpf = leitura.nextLine();
 
-        Pattern pattern = Pattern.compile("^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$");
-        Matcher matcher = pattern.matcher(cpf);
+        Pattern cpfPattern = Pattern.compile("^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$");
+        Matcher cpfMatcher = cpfPattern.matcher(cpf);
 
         alunoView.mostrarPergunta("Data de Nascimento: ");
         String dataTexto = leitura.nextLine();
@@ -45,14 +44,14 @@ public class AlunoController {
         alunoView.mostrarPergunta("E-mail: ");
         String email = leitura.nextLine();
 
-        Pattern pattern1 = Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
-        Matcher matcher1 = pattern1.matcher(email);
+        Pattern emailPattern = Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
+        Matcher emailMatcher = emailPattern.matcher(email);
 
         alunoView.mostrarPergunta("Telefone: ");
         String telefone = leitura.nextLine();
 
-        Pattern pattern2 = Pattern.compile("^\\(?\\d{2}\\)?\\s?\\d{4,5}-?\\d{4}$");
-        Matcher matcher2 = pattern2.matcher(telefone);
+        Pattern telefonePattern = Pattern.compile("^\\(?\\d{2}\\)?\\s?\\d{4,5}-?\\d{4}$");
+        Matcher telefoneMatcher = telefonePattern.matcher(telefone);
 
         Aluno aluno = new Aluno(matricula, nome, cpf, dataDeNascimento, email, telefone);
     }

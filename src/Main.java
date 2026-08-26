@@ -1,4 +1,5 @@
 import controller.AlunoController;
+import controller.TurmaController;
 import model.Aluno;
 import model.Frequencia;
 import model.Notas;
@@ -20,10 +21,8 @@ public class Main {
 
         AlunoController alunoController = new AlunoController(leitura);
 
+        TurmaController turmaController = new TurmaController(leitura);
 
-        TurmaView turmaView =  new TurmaView();
-        turmaView.mostrarPergunta("Digite o número da turma: ");
-        int turma = leitura.nextInt();
 
 
         NotasView notasView = new NotasView();
