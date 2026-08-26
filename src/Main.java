@@ -1,4 +1,5 @@
 import controller.AlunoController;
+import controller.FrequenciaController;
 import controller.NotasController;
 import controller.TurmaController;
 import model.Aluno;
@@ -26,21 +27,8 @@ public class Main {
 
         NotasController notasController = new NotasController(leitura);
 
+        FrequenciaController frequenciaController = new FrequenciaController(leitura);
 
-
-
-
-        FrequenciaView frequenciaView = new FrequenciaView();
-        frequenciaView.mostrarFrequencia();
-
-        frequenciaView.mostrarPergunta("Digite o número de aulas presentes: ");
-        int aulasPresentes = leitura.nextInt();
-
-        frequenciaView.mostrarPergunta("Digite o número de aulas faltadas: ");
-        int aulasFaltadas = leitura.nextInt();
-
-        Frequencia frequencia = new Frequencia(aluno, aulasPresentes, aulasFaltadas);
-        frequenciaView.exibirResltado(frequencia);
 
        leitura.close();
        //alunoView.alunoCadastrado();
