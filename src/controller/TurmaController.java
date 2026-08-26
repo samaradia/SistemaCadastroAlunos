@@ -13,6 +13,8 @@ public class TurmaController {
 
     public void cadastrarTurma(){
         TurmaView turmaView =  new TurmaView();
+        turmaView.mostrarTurmas();
+
         turmaView.mostrarPergunta("Digite o número da turma: ");
         int turma = leitura.nextInt();
     }
