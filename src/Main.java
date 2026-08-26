@@ -1,4 +1,5 @@
 import controller.AlunoController;
+import controller.NotasController;
 import controller.TurmaController;
 import model.Aluno;
 import model.Frequencia;
@@ -23,21 +24,10 @@ public class Main {
 
         TurmaController turmaController = new TurmaController(leitura);
 
+        NotasController notasController = new NotasController(leitura);
 
 
-        NotasView notasView = new NotasView();
-        notasView.mostrarNotas();
-        notasView.mostrarPergunta("Digite nota1: ");
-        double nota1 = leitura.nextDouble();
 
-        notasView.mostrarPergunta("Digite nota2: ");
-        double nota2 = leitura.nextDouble();
-
-        notasView.mostrarPergunta("Digite nota3: ");
-        double nota3 = leitura.nextDouble();
-
-        Notas nota = new Notas(aluno, nota1, nota2, nota3);
-        notasView.exibirResultado(nota);
 
 
         FrequenciaView frequenciaView = new FrequenciaView();
