@@ -12,7 +12,7 @@ public class FrequenciaView {
     }
 
     public void exibirResltado(Frequencia frequencia){
-        System.out.println("\nTotal de frequência: " + frequencia.calcularFrequencia());
+        System.out.printf("\nTotal de frequência: %.0f%%\n", frequencia.calcularFrequencia());
         System.out.println(frequencia.VerificarFrequencia());
     }
 }
