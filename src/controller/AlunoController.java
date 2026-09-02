@@ -37,8 +37,22 @@ public class AlunoController {
             }
         } while (!matriculaMatcher.matches());
 
-        alunoView.mostrarPergunta("Nome: ");
-        String nome = leitura.nextLine();
+
+        Pattern nomePattern = Pattern.compile("^[\\p{L}]+(?: [\\p{L}]+)*$");
+
+        String nome;
+        Matcher nomeMatcher;
+
+        do{
+            alunoView.mostrarPergunta("Nome: ");
+            nome = leitura.nextLine();
+
+            nomeMatcher = nomePattern.matcher(nome);
+            if (!nomeMatcher.matches()){
+                System.out.println("Nome inválido! Digite novamente.");
+            }
+        } while (!nomeMatcher.matches());
+
 
         Pattern cpfPattern = Pattern.compile("^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$");
 
@@ -61,6 +75,7 @@ public class AlunoController {
 
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataDeNascimento = LocalDate.parse(dataTexto, formato);
+
 
         Pattern emailPattern = Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
 
