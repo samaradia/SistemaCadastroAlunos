@@ -62,11 +62,29 @@ public class AlunoController {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataDeNascimento = LocalDate.parse(dataTexto, formato);
 
-        alunoView.mostrarPergunta("E-mail: ");
-        String email = leitura.nextLine();
+
+
+
+
 
         Pattern emailPattern = Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
-        Matcher emailMatcher = emailPattern.matcher(email);
+
+        String email;
+        Matcher emailMatcher;
+
+        do{
+            alunoView.mostrarPergunta("E-mail: ");
+            email = leitura.nextLine();
+
+            emailMatcher = emailPattern.matcher(email);
+            if (!emailMatcher.matches()){
+                System.out.println("E-mail inválido! Digite novamente.");
+            }
+        } while (!emailMatcher.matches());
+
+
+
+
 
         alunoView.mostrarPergunta("Telefone: ");
         String telefone = leitura.nextLine();
