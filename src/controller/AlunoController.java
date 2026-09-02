@@ -37,17 +37,23 @@ public class AlunoController {
             }
         } while (!matriculaMatcher.matches());
 
-
-
-
         alunoView.mostrarPergunta("Nome: ");
         String nome = leitura.nextLine();
 
-        alunoView.mostrarPergunta("CPF: ");
-        String cpf = leitura.nextLine();
-
         Pattern cpfPattern = Pattern.compile("^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$");
-        Matcher cpfMatcher = cpfPattern.matcher(cpf);
+
+        String cpf;
+        Matcher cpfMatcher;
+
+        do{
+            alunoView.mostrarPergunta("CPF: ");
+            cpf = leitura.nextLine();
+
+            cpfMatcher = cpfPattern.matcher(cpf);
+            if (!cpfMatcher.matches()){
+                System.out.println("CPF inválido! Digite novamente.");
+            }
+        } while (!cpfMatcher.matches());
 
 
         alunoView.mostrarPergunta("Data de Nascimento: ");
