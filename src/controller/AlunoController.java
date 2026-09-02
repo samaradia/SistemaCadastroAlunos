@@ -20,11 +20,25 @@ public class AlunoController {
         AlunoView alunoView = new AlunoView();
         alunoView.mostrarCadastro();
 
-        alunoView.mostrarPergunta("Matricula: ");
-        String matricula = leitura.nextLine();
+
 
         Pattern matriculaPattern = Pattern.compile("^\\d{1,10}$");
-        Matcher matriculaMatcher = matriculaPattern.matcher(matricula);
+
+        String matricula;
+        Matcher matriculaMatcher;
+
+        do{
+            alunoView.mostrarPergunta("Matricula: ");
+            matricula = leitura.nextLine();
+
+            matriculaMatcher = matriculaPattern.matcher(matricula);
+            if (!matriculaMatcher.matches()){
+                System.out.println("Matrícula inválida! Digite novamente.");
+            }
+        } while (!matriculaMatcher.matches());
+
+
+
 
         alunoView.mostrarPergunta("Nome: ");
         String nome = leitura.nextLine();
@@ -34,6 +48,7 @@ public class AlunoController {
 
         Pattern cpfPattern = Pattern.compile("^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$");
         Matcher cpfMatcher = cpfPattern.matcher(cpf);
+
 
         alunoView.mostrarPergunta("Data de Nascimento: ");
         String dataTexto = leitura.nextLine();
