@@ -14,6 +14,15 @@ public class AlunoView {
         System.out.println("\n" + pergunta);
     }
 
+    public void mostrarMenu(){
+        System.out.println("=================================");
+        System.out.println("1 - Cadastrar novo aluno.");
+        System.out.println("2 - Encerrar.");
+    }
+    public  void mostrarMensagens(String mensagens){
+        System.out.println("\n" + mensagens);
+    }
+
     public void alunoCadastrado(){
         System.out.println("\n      ALUNO CADASTRADO!        ");
         System.out.println("=================================");

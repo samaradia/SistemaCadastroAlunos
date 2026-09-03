@@ -17,12 +17,11 @@ public class AlunoController {
 
     }
 
+    AlunoView alunoView = new AlunoView();
 
 
-    public Aluno cadastrarAluno(){
-        AlunoView alunoView = new AlunoView();
+    public Aluno cadastrarAluno() {
         alunoView.mostrarCadastro();
-
 
 
         Pattern matriculaPattern = Pattern.compile("^\\d{1,10}$");
@@ -30,13 +29,13 @@ public class AlunoController {
         String matricula;
         Matcher matriculaMatcher;
 
-        do{
+        do {
             alunoView.mostrarPergunta("Matricula: ");
             matricula = leitura.nextLine();
 
             matriculaMatcher = matriculaPattern.matcher(matricula);
-            if (!matriculaMatcher.matches()){
-                System.out.println("Matrícula inválida! Digite novamente.");
+            if (!matriculaMatcher.matches()) {
+                alunoView.mostrarMensagens("Matrícula inválida! Digite novamente.");
             }
         } while (!matriculaMatcher.matches());
 
@@ -46,13 +45,13 @@ public class AlunoController {
         String nome;
         Matcher nomeMatcher;
 
-        do{
+        do {
             alunoView.mostrarPergunta("Nome: ");
             nome = leitura.nextLine();
 
             nomeMatcher = nomePattern.matcher(nome);
-            if (!nomeMatcher.matches()){
-                System.out.println("Nome inválido! Digite novamente.");
+            if (!nomeMatcher.matches()) {
+                alunoView.mostrarMensagens("Nome inválido! Digite novamente.");
             }
         } while (!nomeMatcher.matches());
 
@@ -62,13 +61,13 @@ public class AlunoController {
         String cpf;
         Matcher cpfMatcher;
 
-        do{
+        do {
             alunoView.mostrarPergunta("CPF: ");
             cpf = leitura.nextLine();
 
             cpfMatcher = cpfPattern.matcher(cpf);
-            if (!cpfMatcher.matches()){
-                System.out.println("CPF inválido! Digite novamente.");
+            if (!cpfMatcher.matches()) {
+                alunoView.mostrarMensagens("CPF inválido! Digite novamente.");
             }
         } while (!cpfMatcher.matches());
 
@@ -85,54 +84,63 @@ public class AlunoController {
         String email;
         Matcher emailMatcher;
 
-        do{
+        do {
             alunoView.mostrarPergunta("E-mail: ");
             email = leitura.nextLine();
 
             emailMatcher = emailPattern.matcher(email);
-            if (!emailMatcher.matches()){
-                System.out.println("E-mail inválido! Digite novamente.");
+            if (!emailMatcher.matches()) {
+                alunoView.mostrarMensagens("E-mail inválido! Digite novamente.");
+
             }
-        } while (!emailMatcher.matches());
+        }while (!emailMatcher.matches()) ;
 
-        Pattern telefonePattern = Pattern.compile("^\\(?\\d{2}\\)?\\s?\\d{4,5}-?\\d{4}$");
 
-        String telefone;
-        Matcher telefoneMatcher;
 
-        do{
-            alunoView.mostrarPergunta("Telefone: ");
-            telefone = leitura.nextLine();
+            Pattern telefonePattern = Pattern.compile("^\\(?\\d{2}\\)?\\s?\\d{4,5}-?\\d{4}$");
 
-            telefoneMatcher = telefonePattern.matcher(telefone);
-            if (!telefoneMatcher.matches()){
-                System.out.println("Telefone inválido! Digite novamente.");
-            }
-        } while (!telefoneMatcher.matches());
+            String telefone;
+            Matcher telefoneMatcher;
 
-        Aluno aluno = new Aluno(matricula, nome, cpf, dataDeNascimento, email, telefone);
-        alunoView.exibirDados(aluno);
-        return aluno;
+            do {
+                alunoView.mostrarPergunta("Telefone: ");
+                telefone = leitura.nextLine();
+
+                telefoneMatcher = telefonePattern.matcher(telefone);
+                if (!telefoneMatcher.matches()) {
+                    alunoView.mostrarMensagens("Telefone inválido! Digite novamente.");
+                }
+            } while (!telefoneMatcher.matches());
+
+            Aluno aluno = new Aluno(matricula, nome, cpf, dataDeNascimento, email, telefone);
+            alunoView.exibirDados(aluno);
+            return aluno;
+
     }
 
-    public Aluno mostrarMenu() {
-        int opcao;
+        public Aluno mostrarMenu(){
+            int opcao;
 
-        do {
-            System.out.println("1 - Cadastrar novo aluno.");
-            System.out.println("2 - Encerrar.");
+            do {
+                alunoView.mostrarMenu();
 
-            opcao = leitura.nextInt();
-            leitura.nextLine();
-            if (opcao == 1) {
-                cadastrarAluno();
-            } else if (opcao != 1 && opcao != 2) {
-                System.out.println("Opção inválida, digite novamente.");
-            }
-        } while (opcao != 2);
-        return null;
+                opcao = leitura.nextInt();
+                leitura.nextLine();
+
+                if (opcao == 1) {
+                    cadastrarAluno();
+
+                } else if (opcao == 2) {
+                    alunoView.mostrarMensagens("Programa encerrado.");
+
+                } else {
+                    alunoView.mostrarMensagens("Opção inválida, digite novamente.");
+                }
+
+            } while (opcao != 2);
+            return null;
+        }
+
+
     }
 
-
-
-}
