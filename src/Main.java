@@ -22,6 +22,7 @@ public class Main {
 
         CursoController cursoController = new CursoController(leitura);
         cursoController.cadastrarCurso();
+        alunoController.mostrarMenu();
 
 
 

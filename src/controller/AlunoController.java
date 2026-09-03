@@ -16,6 +16,9 @@ public class AlunoController {
         this.leitura = leitura;               // um Scanner. Eu vou guardar esse Scanner dentro de mim.
 
     }
+
+
+
     public Aluno cadastrarAluno(){
         AlunoView alunoView = new AlunoView();
         alunoView.mostrarCadastro();
@@ -110,10 +113,26 @@ public class AlunoController {
         Aluno aluno = new Aluno(matricula, nome, cpf, dataDeNascimento, email, telefone);
         alunoView.exibirDados(aluno);
         return aluno;
-
-
-
-
     }
+
+    public Aluno mostrarMenu() {
+        int opcao;
+
+        do {
+            System.out.println("1 - Cadastrar novo aluno.");
+            System.out.println("2 - Encerrar.");
+
+            opcao = leitura.nextInt();
+            leitura.nextLine();
+            if (opcao == 1) {
+                cadastrarAluno();
+            } else if (opcao != 1 && opcao != 2) {
+                System.out.println("Opção inválida, digite novamente.");
+            }
+        } while (opcao != 2);
+        return null;
+    }
+
+
 
 }
