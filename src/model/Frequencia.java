@@ -1,3 +1,5 @@
+package model;
+
 public class Frequencia {
 
   private Aluno aluno;

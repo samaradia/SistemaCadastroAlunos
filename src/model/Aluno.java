@@ -1,3 +1,5 @@
+package model;
+
 import java.time.LocalDate;
 
 public class Aluno {
@@ -64,18 +66,4 @@ public class Aluno {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-
-    public void exibirDados() {
-        System.out.println("=================================");
-        System.out.println("          DADOS DO ALUNO");
-        System.out.println("=================================");
-        System.out.println("Matrícula: " + matricula);
-        System.out.println("Nome: " + nome);
-        System.out.println("CPF: " + cpf);
-        System.out.println("Data de nascimento: " + dataNascimento);
-        System.out.println("E-mail: " + email);
-        System.out.println("Telefone: " + telefone);
-    }
-
-
 }

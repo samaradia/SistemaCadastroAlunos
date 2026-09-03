@@ -1,0 +1,146 @@
+package controller;
+
+import model.Aluno;
+import view.AlunoView;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class AlunoController {
+    private Scanner leitura; //O AlunoController vai guardar um Scanner.
+
+    public AlunoController(Scanner leitura) { //Quando alguém criar um AlunoController, ele precisa me entregar
+        this.leitura = leitura;               // um Scanner. Eu vou guardar esse Scanner dentro de mim.
+
+    }
+
+    AlunoView alunoView = new AlunoView();
+
+
+    public Aluno cadastrarAluno() {
+        alunoView.mostrarCadastro();
+
+
+        Pattern matriculaPattern = Pattern.compile("^\\d{1,10}$");
+
+        String matricula;
+        Matcher matriculaMatcher;
+
+        do {
+            alunoView.mostrarPergunta("Matricula: ");
+            matricula = leitura.nextLine();
+
+            matriculaMatcher = matriculaPattern.matcher(matricula);
+            if (!matriculaMatcher.matches()) {
+                alunoView.mostrarMensagens("Matrícula inválida! Digite novamente.");
+            }
+        } while (!matriculaMatcher.matches());
+
+
+        Pattern nomePattern = Pattern.compile("^[\\p{L}]+(?: [\\p{L}]+)*$");
+
+        String nome;
+        Matcher nomeMatcher;
+
+        do {
+            alunoView.mostrarPergunta("Nome: ");
+            nome = leitura.nextLine();
+
+            nomeMatcher = nomePattern.matcher(nome);
+            if (!nomeMatcher.matches()) {
+                alunoView.mostrarMensagens("Nome inválido! Digite novamente.");
+            }
+        } while (!nomeMatcher.matches());
+
+
+        Pattern cpfPattern = Pattern.compile("^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$");
+
+        String cpf;
+        Matcher cpfMatcher;
+
+        do {
+            alunoView.mostrarPergunta("CPF: ");
+            cpf = leitura.nextLine();
+
+            cpfMatcher = cpfPattern.matcher(cpf);
+            if (!cpfMatcher.matches()) {
+                alunoView.mostrarMensagens("CPF inválido! Digite novamente.");
+            }
+        } while (!cpfMatcher.matches());
+
+
+        alunoView.mostrarPergunta("Data de Nascimento: ");
+        String dataTexto = leitura.nextLine();
+
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate dataDeNascimento = LocalDate.parse(dataTexto, formato);
+
+
+        Pattern emailPattern = Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
+
+        String email;
+        Matcher emailMatcher;
+
+        do {
+            alunoView.mostrarPergunta("E-mail: ");
+            email = leitura.nextLine();
+
+            emailMatcher = emailPattern.matcher(email);
+            if (!emailMatcher.matches()) {
+                alunoView.mostrarMensagens("E-mail inválido! Digite novamente.");
+
+            }
+        }while (!emailMatcher.matches()) ;
+
+
+
+            Pattern telefonePattern = Pattern.compile("^\\(?\\d{2}\\)?\\s?\\d{4,5}-?\\d{4}$");
+
+            String telefone;
+            Matcher telefoneMatcher;
+
+            do {
+                alunoView.mostrarPergunta("Telefone: ");
+                telefone = leitura.nextLine();
+
+                telefoneMatcher = telefonePattern.matcher(telefone);
+                if (!telefoneMatcher.matches()) {
+                    alunoView.mostrarMensagens("Telefone inválido! Digite novamente.");
+                }
+            } while (!telefoneMatcher.matches());
+
+            Aluno aluno = new Aluno(matricula, nome, cpf, dataDeNascimento, email, telefone);
+            alunoView.exibirDados(aluno);
+            return aluno;
+
+    }
+
+        public Aluno mostrarMenu(){
+            int opcao;
+
+            do {
+                alunoView.mostrarMenu();
+
+                opcao = leitura.nextInt();
+                leitura.nextLine();
+
+                if (opcao == 1) {
+                    cadastrarAluno();
+
+                } else if (opcao == 2) {
+                    alunoView.mostrarMensagens("Programa encerrado.");
+
+                } else {
+                    alunoView.mostrarMensagens("Opção inválida, digite novamente.");
+                }
+
+            } while (opcao != 2);
+            return null;
+        }
+
+
+    }
+
