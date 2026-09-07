@@ -1,25 +1,37 @@
 # Sistema de Cadastro de Alunos
 
-Projeto desenvolvido em Java para praticar Programação Orientada a Objetos (POO).
+Projeto desenvolvido em Java para praticar Programação Orientada a Objetos (POO) e a arquitetura MVC (Model-View-Controller).
 
 ## Funcionalidades
 
 - Cadastro de alunos
-- Cadastro de turma
-- Cadastro de notas
-- Cálculo de média
+- Cadastro e gerenciamento de turmas
+- Associação de alunos às turmas
+- Cadastro de notas e cálculo de média
 - Controle de frequência
+- Cadastro de cursos
 - Validação de dados com Regex
-- Uso de LocalDate para data de nascimento
+- Manipulação de datas com LocalDate
 - Uso de ArrayList
 
-## Tecnologias
+## Arquitetura MVC
+
+- **Model:** representa as entidades, como `Aluno` e `Turma`.
+- **View:** responsável pela interação e exibição de informações.
+- **Controller:** controla o fluxo da aplicação e a comunicação entre Model e View.
+
+## Tecnologias e conceitos
 
 - Java
 - POO
+- MVC
 - Regex
 - LocalDate
 - ArrayList
+- Encapsulamento
+- Construtores
+- Objetos e métodos
+
 
 ## Próximas melhorias
 
