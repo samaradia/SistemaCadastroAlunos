@@ -12,7 +12,7 @@ public class Main {
         Aluno aluno = alunoController.cadastrarAluno();
 
         TurmaController turmaController = new TurmaController(leitura);
-        turmaController.cadastrarTurma();
+        turmaController.cadastrarTurma(aluno);
 
         NotasController notasController = new NotasController(leitura);
         notasController.cadastrarNotas(aluno);
